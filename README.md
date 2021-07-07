@@ -1,5 +1,5 @@
 ## freeswitch_install
-freeswitch安装脚本 用于在linux上自动部署freeswitch（centOS 7上已验证）
+用于在linux上自动安装部署freeswitch（centOS7）
 
 ### 材料清单
 下列材料清单中，fs源码()和两个fs基础声音文件直接官网下载:  
