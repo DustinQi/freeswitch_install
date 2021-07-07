@@ -1,0 +1,41 @@
+<configuration name="odbc_cdr.conf" description="ODBC CDR Configuration">
+  <settings>
+    <!-- <param name="odbc-dsn" value="database:username:password"/> -->
+    <param name="odbc-dsn" value="odbc://fsbackup::"/>
+	<!-- global value can be "a-leg", "b-leg", "both" (default is "both") -->
+	<param name="log-leg" value="both"/>
+    <!-- value can be "always", "never", "on-db-fail" -->
+    <param name="write-csv" value="on-db-fail"/>
+	<!-- location to store csv copy of CDR -->
+    <param name="csv-path" value="/usr/local/freeswitch/log/odbc_cdr"/>
+    <!-- if "csv-path-on-fail" is set, failed INSERTs will be placed here as CSV files otherwise they will be placed in "csv-path" -->
+    <param name="csv-path-on-fail" value="/usr/local/freeswitch/log/odbc_cdr/failed"/>
+    <!-- dump SQL statement after leg ends -->
+	<param name="debug-sql" value="true"/>
+  </settings>
+  <tables>
+	<!-- only a-legs will be inserted into this table -->
+    <table name="cdr2">
+      <field name="custom_id" chan-var-name="custom_id"/>
+      <field name="account_code" chan-var-name="accountcode"/>
+      <field name="record_file" chan-var-name="record_file"/>
+      <field name="username" chan-var-name="username"/>
+      <field name="caller_id_number" chan-var-name="caller_id_number"/>
+      <field name="destination_number" chan-var-name="destination_number"/>
+      <field name="uuid" chan-var-name="uuid"/>
+      <field name="bleg_uuid" chan-var-name="bleg_uuid"/>
+      <field name="ip_internal" chan-var-name="sip_via_host"/>
+      <field name="local_server" chan-var-name="local_ip_v4"/>
+      <field name="sip_to_host" chan-var-name="sip_to_host"/>
+      <field name="start_stamp" chan-var-name="start_stamp"/>
+      <field name="answer_stamp" chan-var-name="answer_stamp"/>
+      <field name="end_stamp" chan-var-name="end_stamp"/>
+      <field name="duration" chan-var-name="duration"/>
+      <field name="billsec" chan-var-name="billsec"/>
+      <field name="hangup_cause" chan-var-name="hangup_cause"/>
+      <field name="sip_hangup_disposition" chan-var-name="sip_hangup_disposition"/>
+      <field name="sip_endpoint_disposition" chan-var-name="endpoint_disposition"/>
+      <field name="direction" chan-var-name="direction"/>
+    </table>
+  </tables>
+</configuration>
