@@ -1,0 +1,14 @@
+[Unit]
+Description=FreeSWITCH
+After=syslog.target network.target
+
+[Service]
+User=root
+EnvironmentFile=-/etc/sysconfig/freeswitch
+WorkingDirectory=/usr/local/freeswitch
+ExecStart=/usr/local/freeswitch/bin/freeswitch -nc -nf $FREESWITCH_PARAMS
+ExecStop=/usr/local/freeswitch/bin/freeswitch -stop
+ExecReload=/usr/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
