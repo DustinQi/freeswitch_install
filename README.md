@@ -9,7 +9,7 @@ https://files.freeswitch.org/releases/sounds/
 #### 安装脚本
 fs_install.sh 
 #### fs源码
-freeswitch-1.6.20.tar.xz
+freeswitch-1.6.20.tar.xz  
 https://files.freeswitch.org/freeswitch-releases/
 #### fs基础声音文件
 freeswitch-sounds-en-us-callie-8000-1.0.22.tar.gz  
